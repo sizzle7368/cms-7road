@@ -15,5 +15,12 @@
   <listener>
   		<listener-class>com.sz7road.web.common.listener.ApplicationInitListener</listener-class>
   </listener>
-
+	<servlet>
+	  	 <servlet-name>captcha</servlet-name>
+	 	 <servlet-class>com.sz7road.web.common.servlet.CaptchaServlet</servlet-class> 
+ 	</servlet>
+ 	<servlet-mapping>
+		  <servlet-name>captcha</servlet-name>
+		  <url-pattern>/captcha</url-pattern>
+	</servlet-mapping>
 </web-app>
