@@ -17,7 +17,7 @@
     
 	
 	<package name="login" namespace="/" extends="struts-default">
-		<action name="login">
+		<action name="login" class="com.sz7road.web.action.test" method="login">
 			<result>/WEB-INF/index.jsp</result>
 		</action>
 	</package>
