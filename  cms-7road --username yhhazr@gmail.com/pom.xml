@@ -10,7 +10,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>jsp-api</artifactId>
@@ -22,13 +21,21 @@
     	<artifactId>struts2-core</artifactId>
     	<version>2.3.4</version>
     </dependency>
+      <dependency>
+    	<groupId>org.apache.directory.studio</groupId>
+    	<artifactId>org.apache.logging.log4j</artifactId>
+    	<version>1.2.16</version>
+    </dependency>
+      <dependency>
+      	<groupId>javax.servlet</groupId>
+      	<artifactId>servlet-api</artifactId>
+      	<version>3.0-alpha-1</version>
+      </dependency>
   </dependencies>
   <build>
-    <sourceDirectory>${basedir}/src/mian/java</sourceDirectory>
-    <outputDirectory>${basedir}/src/main/WebRoot/WEB-INF/classes</outputDirectory>
     <resources>
       <resource>
-        <directory>${basedir}/src/mian/java</directory>
+        <directory>src/mian/java</directory>
         <excludes>
           <exclude>**/*.java</exclude>
         </excludes>
