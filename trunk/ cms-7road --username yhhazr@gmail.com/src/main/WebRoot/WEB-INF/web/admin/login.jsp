@@ -56,7 +56,7 @@
 </div>
 				
 </div>
-				<input type="submit" value="" class="btn btn-primary">
+				<input type="submit" value="登录" style="margin-left:160px;" class="btn btn-primary">
               
             </s:form>
 				</div>

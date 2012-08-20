@@ -40,7 +40,9 @@
 				<#if parameters.cssClass?exists>
  					class="${parameters.cssClass?html}"<#rt/>
 				<#else>
+					<#if (eKey != "error")>
  					class="help-inline"<#rt/>
+ 					</#if>
 				</#if>
 				<#if parameters.cssStyle?exists>
  				style="${parameters.cssStyle?html}"<#rt/>
@@ -63,12 +65,13 @@
 	<#if parameters.cssClass?exists>
  		class="${parameters.cssClass?html}"<#rt/>
 	<#else>
- 		class="errorMessage"<#rt/>
+ 		class="help-inline""<#rt/>
 	</#if>
 	<#if parameters.cssStyle?exists>
  		style="${parameters.cssStyle?html}"<#rt/>
 	</#if>
-		>${eEachValue}</span>
+	id="${eKey}"
+		>${eEachValue}</span><script>$("#${eKey}").parent("div").parent(".control-group").addClass("error");</script>
 				</#list><#t/>
 			</#list><#t/>
 	</#if><#t/>
