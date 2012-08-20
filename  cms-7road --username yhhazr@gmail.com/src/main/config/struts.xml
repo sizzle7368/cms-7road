@@ -20,9 +20,7 @@
 		</action>
 		<action name="submit" class="com.sz7road.web.action.test" method="submit">
 			<result name="success">/WEB-INF/web/admin/index.jsp</result>
-			<result name="input">
-				/WEB-INF/web/admin/login.jsp  
-			</result>
+			<result name="input">/WEB-INF/web/admin/login.jsp</result>
 		</action>
 	</package>
 	</struts>
