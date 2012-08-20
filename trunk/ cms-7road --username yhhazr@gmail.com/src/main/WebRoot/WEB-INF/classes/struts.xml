@@ -5,21 +5,24 @@
 
 <struts>
 	<constant name="struts.custom.i18n.resources" value="message"></constant>
-	<constant name="struts.ui.theme" value="simple" />
-	<constant name="struts.ui.templateDir" value="template" />
-	<constant name="struts.ui.templateSuffix" value="ftl" />
+	
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 
-  
+  	<constant name="struts.ui.theme" value="simple" />
     <constant name= "struts.multipart.maxSize" value="2048000" />  
     <constant name="struts.action.extension" value="action,do,webwork" /> 
     
 	
-	<package name="login" namespace="/" extends="struts-default">
-		<action name="login">
-			<result>/WEB-INF/index.jsp</result>
+	<package name="login" namespace="/" extends="json-default">
+		<action name="login" class="com.sz7road.web.action.test" method="login">
+			<result name="success">/WEB-INF/web/admin/login.jsp</result>
+		</action>
+		<action name="submit" class="com.sz7road.web.action.test" method="submit">
+			<result name="success">/WEB-INF/web/admin/index.jsp</result>
+			<result name="input">
+				/WEB-INF/web/admin/login.jsp  
+			</result>
 		</action>
 	</package>
-	
-</struts>
+	</struts>
