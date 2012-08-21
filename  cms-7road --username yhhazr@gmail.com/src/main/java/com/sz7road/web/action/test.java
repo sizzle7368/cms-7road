@@ -8,7 +8,8 @@ import org.apache.log4j.Logger;
 import org.apache.struts2.json.annotations.JSON;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.sz7road.web.common.listener.SyetemConfig;
+import com.sz7road.web.common.util.HibernateUtil;
+import com.sz7road.web.model.user.User;
 /**
  * 
  * @author hai.yuan
@@ -23,14 +24,14 @@ public class test extends ActionSupport {
 	Logger logger = Logger.getLogger(test.class);
 	
 	public String login(){
-		logger.error("error ok!");
-		logger.debug("debug ok!");
-		logger.info("info ok!");
-		System.out.println(SyetemConfig.getProperty("test"));
 		return SUCCESS;
 	}
 	public String submit() {
-		System.out.println(name);
+		User user = new User();
+		user.setEmail("sdf");
+		user.setPassword("sf");
+		user.setUserName("yhh");
+		HibernateUtil.add(user);
 		return SUCCESS;
 	}
 	
@@ -41,12 +42,10 @@ public class test extends ActionSupport {
 		}
 		if(password.length() == 0 || "".equals(password)){
 			this.addFieldError("password", "请输入密码");
+		}if(true){
+			this.addActionError("用户名密码错误");
 		}
-		if(true){
-			
-			
-			this.addFieldError("error", "用户名或密码错误！");
-		}
+		
 	}
 
 	public String getName() {
