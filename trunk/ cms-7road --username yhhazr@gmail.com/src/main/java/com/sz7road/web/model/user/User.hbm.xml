@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sz7road.web.model.user">
+
+	<class name="User" table="user">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="userName" />
+		<property name="password" />
+		<property name="email" />
+		
+	</class>
+	
+	<query name="getUserByBirthday">
+		<![CDATA[from User where birthday=:birthday]]>
+	</query>
+</hibernate-mapping>

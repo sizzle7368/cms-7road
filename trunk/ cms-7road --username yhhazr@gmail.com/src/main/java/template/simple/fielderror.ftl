@@ -35,21 +35,23 @@
 			<#if (haveMatchedErrorField && (!doneStartUlTag))><#t/>
 				<#assign doneStartUlTag=true><#t/>
 			</#if><#t/>
-			<#list eValue as eEachValue><#t/>
+			
+				<#list eValue as eEachValue><#t/>
 				<span<#rt/>
 				<#if parameters.cssClass?exists>
  					class="${parameters.cssClass?html}"<#rt/>
 				<#else>
-					<#if (eKey != "error")>
  					class="help-inline"<#rt/>
- 					</#if>
 				</#if>
 				<#if parameters.cssStyle?exists>
  				style="${parameters.cssStyle?html}"<#rt/>
 				</#if>
 				id="${eKey}"
 				>${eEachValue}</span><script>$("#${eKey}").parent("div").parent(".control-group").addClass("error");</script>
-			</#list><#t/>			
+				</#list><#t/>	
+			
+			
+					
 		</#if><#t/>
 		</#list><#t/>
 	</#list><#t/>
@@ -60,21 +62,22 @@
 	<#if (eKeysSize > 0)><#t/>
 			<#list eKeys as eKey><#t/>
 				<#assign eValue = fieldErrors[eKey]><#t/>
+				
 				<#list eValue as eEachValue><#t/>
-					<span<#rt/>
-	<#if parameters.cssClass?exists>
- 		class="${parameters.cssClass?html}"<#rt/>
-	<#else>
-		<#if (eKey != "error")>
- 		class="help-inline""<#rt/>
- 		</#if>
-	</#if>
-	<#if parameters.cssStyle?exists>
- 		style="${parameters.cssStyle?html}"<#rt/>
-	</#if>
-	id="${eKey}"
-		>${eEachValue}</span><script>$("#${eKey}").parent("div").parent(".control-group").addClass("error");</script>
-				</#list><#t/>
+				<span<#rt/>
+				<#if parameters.cssClass?exists>
+ 					class="${parameters.cssClass?html}"<#rt/>
+				<#else>
+ 					class="help-inline"<#rt/>
+				</#if>
+				<#if parameters.cssStyle?exists>
+ 				style="${parameters.cssStyle?html}"<#rt/>
+				</#if>
+				id="${eKey}"
+				>${eEachValue}</span><script>$("#${eKey}").parent("div").parent(".control-group").addClass("error");</script>
+				</#list><#t/>	
+			
+				
 			</#list><#t/>
 	</#if><#t/>
 </#if><#t/>
