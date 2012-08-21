@@ -160,14 +160,14 @@ text-decoration: none;
                     <div class="accordion-group ">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#dashboardsb">
-                                <i class="icon-large icon-th-large head_icon"></i> 用户管理
+                                <i class="icon-th-large"></i> 用户管理
                             </a>
                         </div>
                         <div id="dashboardsb" class="accordion-body collapse" style="height: 0px; ">
                             <div class="accordion-inner">
                                 <ul class="nav nav-list">
-                                    <li><a href="index.html"><i class="icon-large icon-th"></i> 查询用户</a></li>
-                                    <li><a href="stats.html"><i class="icon-large icon-th"></i> 新增用户</a></li>
+                                    <li><a href="index.html"><i class="icon-th-list"></i> 查询用户</a></li>
+                                    <li><a href="stats.html"><i class="icon-th-list"></i> 新增用户</a></li>
                                 </ul>
                             </div>
                         </div>

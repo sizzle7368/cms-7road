@@ -28,11 +28,9 @@
 							</div>
 						</div>
 					</div>
-					<s:if test="#request.fieldErrors.error!=NULL">
-					<div class="alert alert-error">
-						<s:fielderror><s:param>error</s:param> </s:fielderror>
-					</div>
-					</s:if>
+					
+						<s:actionerror/>
+					
 					 <s:form id="validationForm"  action="submit.action" enctype="multipart/form-data"  cssClass="form-horizontal">
                 
                 
