@@ -12,13 +12,13 @@ import org.apache.log4j.Logger;
  * @author hai.yuan
  *
  */
-public class SyetemConfig {
+public class SystemConfig {
 
 	private static Properties properties = new Properties();
 	
-	Logger logger = Logger.getLogger(SyetemConfig.class);
+	Logger logger = Logger.getLogger(SystemConfig.class);
 	
-	public SyetemConfig(ServletContext context){
+	public SystemConfig(ServletContext context){
 		try {
 			InputStream fileStream = context.getResourceAsStream("WEB-INF/classes/applicationConfig.properties");
 			properties.load(fileStream);

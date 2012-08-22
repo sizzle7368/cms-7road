@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sz7road.web.model.permission">
+
+	<class name="Permission" table="permission">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="parentId" not-null="true" />
+		<property name="permName" not-null="true"/>
+		<property name="permDesc" />
+		<property name="permUrl" not-null="true"/>
+		<property name="orderId" not-null="true"/>
+		<property name="enable" access="field" not-null="true"/>
+		<property name="isMenu" access="field" not-null="true"/>
+		
+	</class>
+	
+	
+</hibernate-mapping>

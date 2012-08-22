@@ -8,13 +8,12 @@
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="userName" />
-		<property name="password" />
+		<property name="userName" not-null="true"/>
+		<property name="password" not-null="true"/>
 		<property name="email" />
+		<many-to-one name="role" column="roleId"/>
 		
 	</class>
 	
-	<query name="getUserByBirthday">
-		<![CDATA[from User where birthday=:birthday]]>
-	</query>
+	
 </hibernate-mapping>

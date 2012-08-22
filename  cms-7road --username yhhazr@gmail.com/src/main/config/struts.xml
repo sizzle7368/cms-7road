@@ -4,23 +4,25 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<constant name="struts.custom.i18n.resources" value="message"></constant>
-	
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
-
   	<constant name="struts.ui.theme" value="simple" />
     <constant name= "struts.multipart.maxSize" value="2048000" />  
     <constant name="struts.action.extension" value="action,do,webwork" /> 
     
+    <package name="default" extends="json-default,struts-default">
+    	
+    	<global-results>
+			<result name="login" type="redirect">/adminLogin.action</result>
+			<result name="error">adminErrorPage</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+    </package>
 	
-	<package name="login" namespace="/" extends="json-default">
-		<action name="login" class="com.sz7road.web.action.test" method="login">
-			<result name="success">/WEB-INF/web/admin/login.jsp</result>
-		</action>
-		<action name="submit" class="com.sz7road.web.action.test" method="submit">
-			<result name="success">/WEB-INF/web/admin/index.jsp</result>
-			<result name="input">/WEB-INF/web/admin/login.jsp</result>
-		</action>
-	</package>
+	<include file="admin_login.xml" />
+	
+	
 	</struts>
