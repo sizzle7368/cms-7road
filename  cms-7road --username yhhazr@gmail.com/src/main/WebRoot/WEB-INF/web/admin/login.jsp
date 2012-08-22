@@ -31,7 +31,7 @@
 					
 						<s:actionerror/>
 					
-					 <s:form id="validationForm"  action="submit.action" enctype="multipart/form-data"  cssClass="form-horizontal">
+					 <s:form id="validationForm" namespace="/"  action="submit" enctype="multipart/form-data"  cssClass="form-horizontal">
                 
                 
 
