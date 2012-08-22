@@ -3,8 +3,11 @@ package com.sz7road.web.action.login;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sz7road.web.service.LoginService;
+import com.sz7road.web.service.impl.LoginServiceImpl;
 /**
  * 
  * @author hai.yuan
@@ -22,16 +25,34 @@ public class AdminLoginAction extends ActionSupport {
 	}
 	
 	public String loginSubmit(){
-		return SUCCESS;
+		String result = INPUT;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String ip = getIpAddr(request);
+		LoginService loginService = LoginServiceImpl.getInstance();
+		try {
+			if(!loginService.checkIp(ip)){
+				this.addActionError("您的IP不允许访问本系统！");
+				result = INPUT;
+			}else{
+				result = SUCCESS;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+			
+		return result;
 	}
 	
 	public void validateLoginSubmit(){
+		
 		if(name.length() == 0 || "".equals(name)){
 			this.addFieldError("name", "请输入用户名");
 		}
 		if(password.length() == 0 || "".equals(password)){
 			this.addFieldError("password", "请输入密码");
 		}
+		
 	}
 	
 	

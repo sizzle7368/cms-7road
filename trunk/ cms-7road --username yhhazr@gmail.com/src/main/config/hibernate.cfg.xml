@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="show_sql">true</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cms-7road?characterEncoding=utf8&amp;autoReconnect=true</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">yhhazr</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="c3p0.max_size">20</property>
+		<property name="c3p0.min_size">5</property>
+		
+		<mapping resource="com/sz7road/web/model/user/User.hbm.xml"/>
+		<mapping resource="com/sz7road/web/model/role/Role.hbm.xml"/>
+		<mapping resource="com/sz7road/web/model/permission/Permission.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

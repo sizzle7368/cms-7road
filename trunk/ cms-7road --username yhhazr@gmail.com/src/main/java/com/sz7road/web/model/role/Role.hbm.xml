@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sz7road.web.model.role">
+
+	<class name="Role" table="role">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="roleName" not-null="true" />
+		<property name="roleDesc" />
+		<property name="enable" not-null="true"/>
+		<set name="permissions" table="role_permission">
+			<key column="permissionId"/>
+			<many-to-many class="com.sz7road.web.model.permission.Permission" column="roleId"/>
+		</set>		
+	</class>
+	
+	
+</hibernate-mapping>
