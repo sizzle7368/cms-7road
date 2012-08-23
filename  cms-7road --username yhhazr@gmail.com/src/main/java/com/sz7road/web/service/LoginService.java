@@ -4,4 +4,5 @@ public interface LoginService {
 
 	public boolean checkIp(String ip) throws Exception;
 	
+	public boolean checkLogin(String userName, String password) throws Exception;
 }
