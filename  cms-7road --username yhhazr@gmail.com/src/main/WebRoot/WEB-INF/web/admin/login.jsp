@@ -37,7 +37,7 @@
 
                 <div class="control-group "><label class="control-label"         for="validationForm_name"     >用户名:</label><div class="controls">
 
-<input type="text" name="name" value="" id="validationForm_name"/><s:fielderror><s:param>name</s:param> </s:fielderror></div>
+<input type="text" name="userName" value="" id="validationForm_name"/><s:fielderror><s:param>userName</s:param> </s:fielderror></div>
 				 
 				
 </div>
