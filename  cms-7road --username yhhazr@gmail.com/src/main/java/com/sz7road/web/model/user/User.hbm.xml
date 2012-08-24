@@ -11,7 +11,7 @@
 		<property name="userName" not-null="true"/>
 		<property name="password" not-null="true"/>
 		<property name="email" />
-		<many-to-one name="role" column="roleId"/>
+		<many-to-one name="role" lazy="false" column="roleId" class="com.sz7road.web.model.role.Role" />
 		
 	</class>
 	

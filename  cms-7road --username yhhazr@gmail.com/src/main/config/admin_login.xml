@@ -5,10 +5,10 @@
 
 <struts>
 	<package name="login" namespace="/" extends="default">
-		<action name="adminLogin" class="com.sz7road.web.action.login.AdminLoginAction" method="login">
+		<action name="adminLogin" class="com.sz7road.web.action.admin.login.AdminLoginAction" method="login">
 			<result name="success">/WEB-INF/web/admin/login.jsp</result>
 		</action>
-		<action name="submit" class="com.sz7road.web.action.login.AdminLoginAction" method="loginSubmit">
+		<action name="submit" class="com.sz7road.web.action.admin.login.AdminLoginAction" method="loginSubmit">
 			<result name="success">/WEB-INF/web/admin/index.jsp</result>
 			<result name="input">/WEB-INF/web/admin/login.jsp</result>
 		</action>

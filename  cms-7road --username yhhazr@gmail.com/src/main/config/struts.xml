@@ -23,6 +23,7 @@
     </package>
 	
 	<include file="admin_login.xml" />
+	<include file="admin_user.xml" />
 	
 	
 	</struts>
