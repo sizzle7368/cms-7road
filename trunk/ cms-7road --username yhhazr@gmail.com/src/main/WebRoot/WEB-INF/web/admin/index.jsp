@@ -9,15 +9,24 @@
     
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="static/css/demo_table_jui.css" rel="stylesheet">
+<link href="static/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
 <script type="text/javascript" src="static/js/jquery-1.8.0.js"></script>
 <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-
+   function changeContent(url){
+   		$.get(url,function(data){
+   			$(".testtable").html(data);
+   		});
+   }
 $(document).ready(function() {
 	$('#example').dataTable( {
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
+		  "bProcessing": true,
+        
+		"bSortClasses": false,
+		 "bProcessing": true,
 		"bAutoWidth": false,
 		     "oLanguage": {
                     "sProcessing": "正在加载中......",
@@ -38,7 +47,13 @@ $(document).ready(function() {
 } );
 </script>
 <style type="text/css" media="screen">
- 
+ .dataTables_wrapper label select {
+    display: inline;
+}
+.dataTables_wrapper select, .dataTables_wrapper input {
+    margin-bottom: 0;
+    width: auto;
+}
 body
 {
     padding-top: 60px;
@@ -110,7 +125,7 @@ text-decoration: none;
 #content
 {
     height: 650px;
-    background-color: #F5F5F5;
+    background-color: white;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
     margin-bottom: 20px;
@@ -118,7 +133,7 @@ text-decoration: none;
    
 }
 .testtable{
-	
+	padding:20px;
 }
 </style>
 </head>
@@ -195,7 +210,7 @@ text-decoration: none;
                         <div id="dashboardsb" class="accordion-body collapse" style="height: 0px; ">
                             <div class="accordion-inner">
                                 <ul class="nav nav-list">
-                                    <li><a href="index.html"><i class="icon-th-list"></i> 用户管理</a></li>
+                                    <li><a href="javascript:changeContent('userManage.action')"><i class="icon-th-list"></i> 用户管理</a></li>
                                     <li><a href="stats.html"><i class="icon-th-list"></i> 角色管理</a></li>
                                     <li><a href="stats.html"><i class="icon-th-list"></i> 权限管理</a></li>
                                 </ul>
@@ -297,256 +312,177 @@ text-decoration: none;
                        	<table width="60%" cellpadding="0" cellspacing="0" border="0"  id="example" class="display datatable dataTable">
                        		<thead>
 								<tr>
-									<th width="10%">Rendering engine</th>
-									<th width="10%">Browser</th>
-									<th width="10%">Platform(s)</th>
-									<th width="10%">Engine version</th>
-									<th width="10%">CSS grade</th>
+									<th>用户ID</th>
+									<th>用户名</th>
+									<th>角色</th>
+									<th>邮箱</th>
+									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>
-		<tr class="odd gradeX">
-			<td>Trident</td>
-			<td>Internet
-				 Explorer 4.0</td>
-			<td>Win 95+</td>
-			<td class="center"> 4</td>
-			<td class="center">X</td>
+		<tr class="odd">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td class="center "><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="even gradeC">
-			<td>Trident</td>
-			<td>Internet
-				 Explorer 5.0</td>
-			<td>Win 95+</td>
-			<td class="center">5</td>
-			<td class="center">C</td>
+		<tr class="even">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="odd gradeA">
-			<td>Trident</td>
-			<td>Internet
-				 Explorer 5.5</td>
-			<td>Win 95+</td>
-			<td class="center">5.5</td>
-			<td class="center">A</td>
+		<tr class="odd">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="even gradeA">
-			<td>Trident</td>
-			<td>Internet
-				 Explorer 6</td>
-			<td>Win 98+</td>
-			<td class="center">6</td>
-			<td class="center">A</td>
+		<tr class="even">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="odd gradeA">
-			<td>Trident</td>
-			<td>Internet Explorer 7</td>
-			<td>Win XP SP2+</td>
-			<td class="center">7</td>
-			<td class="center">A</td>
+		<tr class="odd">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="even gradeA">
-			<td>Trident</td>
-			<td>AOL browser (AOL desktop)</td>
-			<td>Win XP</td>
-			<td class="center">6</td>
-			<td class="center">A</td>
+		<tr class="even">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Firefox 1.0</td>
-			<td>Win 98+ / OSX.2+</td>
-			<td class="center">1.7</td>
-			<td class="center">A</td>
+		<tr class="odd">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Firefox 1.5</td>
-			<td>Win 98+ / OSX.2+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
+		<tr class="even">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Firefox 2.0</td>
-			<td>Win 98+ / OSX.2+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
+		<tr class="odd">
+			<td>12</td>
+			<td>admin</td>
+			<td>超级管理员</td>
+			<td>afdf@qq.com</td>
+			<td><a class="btn btn-success" href="#">
+				<i class="icon-zoom-in icon-white"></i>
+				查看
+				</a>
+				<a class="btn btn-info" href="#">
+				<i class="icon-edit icon-white"></i>
+				编辑
+				</a>
+				<a class="btn btn-danger" href="#">
+				<i class="icon-trash icon-white"></i>
+				删除
+				</a></td>
 		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Firefox 3.0</td>
-			<td>Win 2k+ / OSX.3+</td>
-			<td class="center">1.9</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Camino 1.0</td>
-			<td>OSX.2+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Camino 1.5</td>
-			<td>OSX.3+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Netscape 7.2</td>
-			<td>Win 95+ / Mac OS 8.6-9.2</td>
-			<td class="center">1.7</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Netscape Browser 8</td>
-			<td>Win 98SE+</td>
-			<td class="center">1.7</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Netscape Navigator 9</td>
-			<td>Win 98+ / OSX.2+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.0</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.1</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.1</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.2</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.2</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.3</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.3</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.4</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.4</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.5</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.5</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.6</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">1.6</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.7</td>
-			<td>Win 98+ / OSX.1+</td>
-			<td class="center">1.7</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Mozilla 1.8</td>
-			<td>Win 98+ / OSX.1+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Seamonkey 1.1</td>
-			<td>Win 98+ / OSX.2+</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Gecko</td>
-			<td>Epiphany 2.20</td>
-			<td>Gnome</td>
-			<td class="center">1.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>Safari 1.2</td>
-			<td>OSX.3</td>
-			<td class="center">125.5</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>Safari 1.3</td>
-			<td>OSX.3</td>
-			<td class="center">312.8</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>Safari 2.0</td>
-			<td>OSX.4+</td>
-			<td class="center">419.3</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>Safari 3.0</td>
-			<td>OSX.4+</td>
-			<td class="center">522.1</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>OmniWeb 5.5</td>
-			<td>OSX.4+</td>
-			<td class="center">420</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>iPod Touch / iPhone</td>
-			<td>iPod</td>
-			<td class="center">420.1</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Webkit</td>
-			<td>S60</td>
-			<td>S60</td>
-			<td class="center">413</td>
-			<td class="center">A</td>
-		</tr>
-		<tr class="gradeA">
-			<td>Presto</td>
-			<td>Opera 7.0</td>
-			<td>Win 95+ / OSX.1+</td>
-			<td class="center">-</td>
-			<td class="center">A</td>
-		</tr>
+		
 							</tbody>
                        	</table>
                 </div>
