@@ -1,4 +1,4 @@
-package com.sz7road.web.action.login;
+package com.sz7road.web.action.admin.login;
 
 import javax.servlet.http.HttpServletRequest;
 
