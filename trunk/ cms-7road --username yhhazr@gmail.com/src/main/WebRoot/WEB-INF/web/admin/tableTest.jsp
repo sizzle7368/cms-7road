@@ -2,17 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="/WEB-INF/displaytag-el.tld" prefix="display-el"%>
 <%@ taglib uri="/WEB-INF/displaytag.tld" prefix="display"%>
-<%@page import="com.sz7road.web.model.user.User"%>
-<%@page import="com.sz7road.web.model.role.Role"%>
+<%@ taglib prefix="pg" uri="/WEB-INF/pager-taglib.tld"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="static/css/bootstrap.css" rel="stylesheet">
-
-<link href="static/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
 
 <style type="text/css">
+.center{
+	text-align: center;
+}
 table.tablelist thead th{
 	padding: 3px 0 3px 10px;
 }
@@ -62,18 +62,22 @@ label{
 <input type="text" aria-controls="example">
 </label>
 </div>
+	
 
 </div>
+	<pg:pager items="${pageationResult.total }" url='<%=request.getContextPath() + "/userManage.action"%>' index="center" maxPageItems='5'
+									maxIndexPages='10' isOffset="true" export="offset,currentPageNumber=pageNumber" scope="request">
+	
 		<display:table name="requestScope.pageationResult.resultList" class="tablelist" 
 				defaultsort="0" cellpadding="0" cellspacing="0" style="width:100%"
 				requestURI="" id="user">
 				<%-- Table columns --%>
 			
-				<display:column property="id"  title="用户ID"  headerClass="ui-state-default" class=""/>
-				<display:column property="userName" title="用户名" headerClass="ui-state-default"/>
-				<display:column property="role.roleName"   title="角色" headerClass="ui-state-default"/>
-				<display:column property="email"   title="邮箱" headerClass="ui-state-default"/>
-				<display:column  title="操作" headerClass="ui-state-default">
+				<display:column property="id"  title="用户ID"  headerClass="ui-state-default" class="center"/>
+				<display:column property="userName" title="用户名" headerClass="ui-state-default" class="center"/>
+				<display:column property="role.roleName"   title="角色" headerClass="ui-state-default" class="center"/>
+				<display:column property="email"   title="邮箱" headerClass="ui-state-default" class="center"/>
+				<display:column  title="操作" headerClass="ui-state-default" class="center">
 					<a class="btn btn-small btn-success" href="#">
 				<i class="icon-zoom-in icon-white"></i>
 				
@@ -90,5 +94,7 @@ label{
 				
 				
 			</display:table>
+			<jsp:include page="/WEB-INF/web/admin/pagination.jsp" flush="true" />
+	</pg:pager>
 </body>
 </html>
