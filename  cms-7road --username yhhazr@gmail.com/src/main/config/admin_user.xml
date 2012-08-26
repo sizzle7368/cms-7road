@@ -10,6 +10,9 @@
 			 	/WEB-INF/web/admin/tableTest.jsp
 			</result>
 		</action>
+		<action name="jsTest">
+			<result>/WEB-INF/web/admin/jsTest.jsp</result>
+		</action>
 		
 	</package>
 </struts>
