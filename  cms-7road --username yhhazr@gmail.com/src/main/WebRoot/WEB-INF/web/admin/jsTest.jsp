@@ -1,64 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-
-  <head>
-   
-    
-<link href="static/css/bootstrap.css" rel="stylesheet">
-<link href="static/css/demo_table_jui.css" rel="stylesheet">
-<link href="static/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
-<script type="text/javascript" src="static/js/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" charset="utf-8">
-   function changeContent(url){
-   		$.get(url,function(data){
-   			$(".testtable").html(data);
-   		});
-   }
-$(document).ready(function() {
-	$('#example').dataTable( {
-		"bJQueryUI": true,
-		"sPaginationType": "full_numbers",
-		  "bProcessing": true,
-        
-		"bSortClasses": false,
-		 "bProcessing": true,
-		"bAutoWidth": false,
-		     "oLanguage": {
-                    "sProcessing": "正在加载中......",
-                    "sLengthMenu": "每页显示 _MENU_ 条记录",
-                    "sZeroRecords": "对不起，查询不到相关数据！",
-                    "sEmptyTable": "表中无数据存在！",
-                    "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
-                    "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
-                    "sSearch": "搜索",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "上一页",
-                        "sNext": "下一页",
-                        "sLast": "末页"
-                    }
-                } //多语言配置
-	} );
-} );
-</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站后台管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link href="static/css/bootstrap.css" rel="stylesheet">    
 <style type="text/css" media="screen">
- .dataTables_wrapper label select {
-    display: inline;
-}
-.dataTables_wrapper select, .dataTables_wrapper input {
-    margin-bottom: 0;
-    width: auto;
-}
 body
 {
     padding-top: 60px;
     padding-bottom: 40px;
-	background-image:url("static/images/bg.png");
+	background-image:url("img/bg.png");
 }
 
 .accordion-heading, .nav.nav-tabs.myTab li a {
@@ -125,15 +79,12 @@ text-decoration: none;
 #content
 {
     height: 650px;
-    background-color: white;
+    background-color: #F5F5F5;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
     margin-bottom: 20px;
     min-height: 20px;
    
-}
-.testtable{
-	padding:20px;
 }
 </style>
 </head>
@@ -147,13 +98,14 @@ text-decoration: none;
           <a class="brand" href="#">网站后台管理系统</a>
           	<div class="btn-group pull-right">
 				<button id="user" class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"> 
-					<i class="icon-user icon-white"></i>  ${sessionScope.userName}
+					<i class="icon-user icon-white"></i>  admin
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="#">修改密码</a></li>
+					<li><a href="#">test</a></li>
+					<li><a href="#">test</a></li>
 					<li class="divider"></li>
-					<li><a href="#">退出</a></li>
+					<li><a href="#">test</a></li>
 				</ul>
 			</div>
           <div class="nav-collapse">
@@ -171,7 +123,6 @@ text-decoration: none;
 					<li><a href="#" id="bg3">背景三</a></li>
 					<li><a href="#" id="bg4">背景四</a></li>
 					<li><a href="#" id="bg5">背景五</a></li>
-					<li><a href="#" id="bg6">背景六</a></li>
 				</ul>
 			  </li>
               
@@ -204,15 +155,14 @@ text-decoration: none;
                     <div class="accordion-group ">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionSB" href="#dashboardsb">
-                                <i class="icon-th-large"></i> 用户及权限管理
+                                <i class="icon-large icon-th-large head_icon"></i> 用户管理
                             </a>
                         </div>
                         <div id="dashboardsb" class="accordion-body collapse" style="height: 0px; ">
                             <div class="accordion-inner">
                                 <ul class="nav nav-list">
-                                    <li><a href="javascript:changeContent('userManage.action')"><i class="icon-th-list"></i> 用户管理</a></li>
-                                    <li><a href="stats.html"><i class="icon-th-list"></i> 角色管理</a></li>
-                                 
+                                    <li><a href="index.html"><i class="icon-large icon-th"></i> 查询用户</a></li>
+                                    <li><a href="stats.html"><i class="icon-large icon-th"></i> 新增用户</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -303,193 +253,18 @@ text-decoration: none;
             </div>
 
             <!-- 右侧内容 -->
-            <div id="content" class="span10">
+            <div id="content" class="span10 ">
                  <div class="navbar-inner">
                     <div class="container-fluid">
+                       
                     </div>
                 </div>
-                <div class="testtable">
-                       	<table width="60%" cellpadding="0" cellspacing="0" border="0"  id="example" class="display datatable dataTable">
-                       		<thead>
-								<tr>
-									<th>用户ID</th>
-									<th>用户名</th>
-									<th>角色</th>
-									<th>邮箱</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td class="center "><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		
-							</tbody>
-                       	</table>
-                </div>
+                
             </div>
         </div>
     </div>
-
+<script type="text/javascript" src="static/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$("#blue").click( function(){
 		$(".navbar-inner").attr("class","navbar-inner");	
@@ -540,26 +315,25 @@ text-decoration: none;
 		$(".accordion-heading").attr("class","accordion-heading");
 	});
 	$("#bg1").click(function(){
-		$("body").css("background-image","url('static/images/bg.png')");
+		$("body").css("background-image","url('img/bg.png')");
 	});
 	$("#nonebg").click(function(){	
-		$("body").css("background-image","url('static/images/sdf.png')");
+		$("body").css("background-image","url('img/sdf.png')");
 	});
 	$("#bg3").click(function(){	
-		$("body").css("background-image","url('static/images/bg3.jpg')");
+		$("body").css("background-image","url('img/bg3.jpg')");
 	});
 	$("#bg4").click(function(){	
-		$("body").css("background-image","url('static/images/bg4.jpg')");
+		$("body").css("background-image","url('img/bg4.jpg')");
 	});
 	$("#bg5").click(function(){	
-		$("body").css("background-image","url('static/images/bg5.jpg')");
-	});
-	$("#bg6").click(function(){	
-		$("body").css("background","url('static/images/17.png') repeat scroll 0 0 #454545");
+		$("body").css("background-image","url('img/bg5.jpg')");
 	});
 	$("#bg2").click(function(){
-		$("body").css("background-image","url('static/images/dark_brick_wall.png')");
+		$("body").css("background-image","url('img/dark_brick_wall.png')");
 	});
 </script>
 </body>
 </html>
+
+
