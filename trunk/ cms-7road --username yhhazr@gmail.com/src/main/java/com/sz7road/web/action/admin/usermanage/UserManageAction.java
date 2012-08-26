@@ -10,6 +10,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.sz7road.web.model.pagination.PageInfo;
+import com.sz7road.web.model.pagination.Pager;
 import com.sz7road.web.model.pagination.PaginationResult;
 import com.sz7road.web.model.user.User;
 import com.sz7road.web.service.UserManageService;
@@ -20,6 +21,7 @@ public class UserManageAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(UserManageAction.class);
 	private UserManageService userService = UserManageServiceImpl.getInstance();
+	private Pager pager;
 	
 	public String userManage(){
 		String result = INPUT;
@@ -27,7 +29,7 @@ public class UserManageAction extends ActionSupport {
 		PageInfo pageInfo = new PageInfo();
 		int startRow = 0;
 		String pagerOffset = request.getParameter("pager.offset");
-		int pageSize = 10;
+		int pageSize = 5;
 		if (!StringUtils.isBlank(pagerOffset) && StringUtils.isNumeric(pagerOffset)) {
 			startRow = Integer.parseInt(pagerOffset);
 		}
@@ -37,12 +39,21 @@ public class UserManageAction extends ActionSupport {
 		try {
 			PaginationResult<User> pageationResult = userService.getUserList(pageInfo);
 			request.setAttribute("pageationResult", pageationResult);
-		
+			request.setAttribute("totalItems", pageationResult.getTotal());
+			request.setAttribute("maxPageItems", 5);
 			result = SUCCESS;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return result;
+	}
+
+	public Pager getPager() {
+		return pager;
+	}
+
+	public void setPager(Pager pager) {
+		this.pager = pager;
 	}
 	
 	
