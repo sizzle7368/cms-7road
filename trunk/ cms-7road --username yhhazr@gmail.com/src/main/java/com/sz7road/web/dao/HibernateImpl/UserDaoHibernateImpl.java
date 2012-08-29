@@ -82,4 +82,19 @@ public class UserDaoHibernateImpl implements UserDao {
 		return count;
 	}
 
+	@Override
+	public void insertUser(User user) throws Exception {
+		HibernateUtil.add(user);
+	}
+
+	@Override
+	public void deleteUser(User user) throws Exception {
+		HibernateUtil.delete(user);
+	}
+
+	@Override
+	public User getUserById(int id) throws Exception {
+		return (User)HibernateUtil.get(User.class, id);
+	}
+
 }
