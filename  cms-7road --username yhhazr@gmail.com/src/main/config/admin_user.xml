@@ -7,12 +7,29 @@
 	<package name="userManage" namespace="/" extends="json-default">
 		<action name="userManage" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="userManage">
 			<result name="success">
-			 	/WEB-INF/web/admin/tableTest.jsp
+			 	/WEB-INF/web/admin/user/admin_userList.jsp
 			</result>
 		</action>
-		<action name="jsTest">
-			<result>/WEB-INF/web/admin/jsTest.jsp</result>
+		<action name="addUser" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="addUser">
+			<result name="success">
+			 	/WEB-INF/web/admin/user/admin_addUser.jsp
+			</result>
 		</action>
-		
+		<action name="addUserSubmit" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="addUserSubmit">
+			<result name="input" type="json">
+				<param name="ignoreHierarchy">false</param>  
+       			<param name="includeProperties">fieldErrors.*,actionErrors.*</param>     
+			</result>
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>  
+       			<param name="includeProperties">result</param>     
+			</result>
+		</action>
+		<action name="deleteUser" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="deleteUser">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy">false</param>  
+       			<param name="includeProperties">result</param>     
+			</result>
+		</action>
 	</package>
 </struts>

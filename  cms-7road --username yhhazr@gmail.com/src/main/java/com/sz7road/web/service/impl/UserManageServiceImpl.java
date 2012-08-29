@@ -2,10 +2,13 @@ package com.sz7road.web.service.impl;
 
 import java.util.List;
 
+import com.sz7road.web.dao.RoleDao;
 import com.sz7road.web.dao.UserDao;
+import com.sz7road.web.dao.HibernateImpl.RoleDaoHibernateImpl;
 import com.sz7road.web.dao.HibernateImpl.UserDaoHibernateImpl;
 import com.sz7road.web.model.pagination.PageInfo;
 import com.sz7road.web.model.pagination.PaginationResult;
+import com.sz7road.web.model.role.Role;
 import com.sz7road.web.model.user.User;
 import com.sz7road.web.service.UserManageService;
 
@@ -14,9 +17,12 @@ public class UserManageServiceImpl implements UserManageService {
 	private static UserManageServiceImpl _this;
 	
 	private static UserDao userDao;
-	 
+
+	private static RoleDao roleDao;
+	
 	public UserManageServiceImpl(){
 		userDao = UserDaoHibernateImpl.getInstance();
+		roleDao = RoleDaoHibernateImpl.getInstance();
 	}
 	
 	public synchronized static UserManageServiceImpl getInstance() {
@@ -31,6 +37,24 @@ public class UserManageServiceImpl implements UserManageService {
 		int count = userDao.getAllUsersCount();
 		PaginationResult<User> pageResult = new PaginationResult<User>(count, userList);
 		return pageResult;
+	}
+
+	@Override
+	public List<Role> getRoleList() throws Exception {
+		return roleDao.getAllRoles();
+	}
+
+	@Override
+	public void addUser(User user) throws Exception {
+		Role role = roleDao.getRoleById(user.getRole().getId());
+		user.setRole(role);
+		userDao.insertUser(user);
+	}
+
+	@Override
+	public void deleteUser(int id) throws Exception {
+		User user = userDao.getUserById(id);
+		userDao.deleteUser(user);
 	}
 
 }
