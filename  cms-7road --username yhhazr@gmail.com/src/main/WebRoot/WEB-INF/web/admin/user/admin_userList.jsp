@@ -3,7 +3,7 @@
 <%@ taglib uri="/WEB-INF/displaytag-el.tld" prefix="display-el"%>
 <%@ taglib uri="/WEB-INF/displaytag.tld" prefix="display"%>
 <%@ taglib prefix="pg" uri="/WEB-INF/pager-taglib.tld"%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -87,7 +87,8 @@ label{
 				<i class="icon-edit icon-white"></i>
 					编辑
 				</a>
-				<a class="btn btn-danger" href="#">
+				
+				<a id='<s:property value="#attr.user.id"/>' name="delete" href="#" class="btn btn-danger" >
 				<i class="icon-trash icon-white"></i>
 					删除
 				</a>
@@ -95,50 +96,38 @@ label{
 				
 				
 			</display:table>
-			<jsp:include page="/WEB-INF/web/admin/pagination.jsp" flush="true" />
+			<jsp:include page="/WEB-INF/web/admin/common/pagination.jsp" flush="true" />
 	</pg:pager>
   <div class="modal hide" id="myModal">
-    <div class="modal-header">
-    <a class="close" data-dismiss="modal">×</a>
-    <h3>新增用户</h3>
+    
     </div>
-    <div class="modal-body">
-   		 <div class="control-group ">
-                	<label class="control-label">用户名:</label>
-                	<div class="controls">
-						<input type="text" name="userName" value=""/>
-					</div>
-		</div>
-		<div class="control-group ">
-                	<label class="control-label">密码:</label>
-                	<div class="controls">
-						<input type="password" name="password" value=""/>
-					</div>
-		</div>
-		<div class="control-group ">
-                	<label class="control-label">确认密码:</label>
-                	<div class="controls">
-						<input type="password" name="confirmPassword" value=""/>
-					</div>
-		</div>
-   		 <div class="control-group ">
-                	<label class="control-label">邮箱:</label>
-                	<div class="controls">
-						<input type="text" name="email" value=""/>
-					</div>
-		</div>
-    </div>
-    <div class="modal-footer">
-    <a href="#" class="btn">关闭</a>
-    <a href="#" class="btn btn-primary">保存更新</a>
-    </div>
-    </div>
-    <script type="test/javascript">
+    <script type="text/javascript" src="static/js/validate.js"></script>
+    <script type="text/javascript">
 		$("#newUser").click(function(){
-			$('#myModal').modal({
-				backdrop:false
-			})
+			$.get("addUser.action",function(data){
+				$("#myModal").html(data);
+				$('#myModal').modal({
+					backdrop:false
+				});
+			});
 		});
+		
+		$("a[name='delete']").click(function(){
+			var id=$(this).attr("id");
+			function callback(){
+				$.get("deleteUser.action?userId="+id,function(data){
+					if(data.result == "true"){
+						changeContent('userManage.action');
+					}else{
+						alert("失败！");
+					}
+				});
+			}
+			bootstrapConfirm("确定删除吗？",callback);
+			
+		});
+		
+		
    	</script>
 </body>
 </html>
