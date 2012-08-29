@@ -9,42 +9,19 @@
     
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="static/css/demo_table_jui.css" rel="stylesheet">
+<link href="static/css/loading.css" rel="stylesheet">
 <link href="static/css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
 <script type="text/javascript" src="static/js/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="static/js/loading.js"></script>
 <script type="text/javascript" charset="utf-8">
    function changeContent(url){
+   		showOverLay();
    		$.get(url,function(data){
-   			$(".testtable").html(data);
+   			closeOverLay();
+   			$(".tableContent").html(data);
    		});
    }
-$(document).ready(function() {
-	$('#example').dataTable( {
-		"bJQueryUI": true,
-		"sPaginationType": "full_numbers",
-		  "bProcessing": true,
-        
-		"bSortClasses": false,
-		 "bProcessing": true,
-		"bAutoWidth": false,
-		     "oLanguage": {
-                    "sProcessing": "正在加载中......",
-                    "sLengthMenu": "每页显示 _MENU_ 条记录",
-                    "sZeroRecords": "对不起，查询不到相关数据！",
-                    "sEmptyTable": "表中无数据存在！",
-                    "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
-                    "sInfoFiltered": "数据表中共为 _MAX_ 条记录",
-                    "sSearch": "搜索",
-                    "oPaginate": {
-                        "sFirst": "首页",
-                        "sPrevious": "上一页",
-                        "sNext": "下一页",
-                        "sLast": "末页"
-                    }
-                } //多语言配置
-	} );
-} );
 </script>
 <style type="text/css" media="screen">
  .dataTables_wrapper label select {
@@ -132,13 +109,14 @@ text-decoration: none;
     min-height: 20px;
    
 }
-.testtable{
+.tableContent{
 	padding:20px;
 }
 </style>
 </head>
 <body>
-
+<div id="iframe-overlay"></div>
+<div id="iframe-loading-overlay" style="display: none;"></div>
     <!-- 顶部 -->    
     <div id="header" class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -308,188 +286,13 @@ text-decoration: none;
                     <div class="container-fluid">
                     </div>
                 </div>
-                <div class="testtable">
-                       	<table width="60%" cellpadding="0" cellspacing="0" border="0"  id="example" class="display datatable dataTable">
-                       		<thead>
-								<tr>
-									<th>用户ID</th>
-									<th>用户名</th>
-									<th>角色</th>
-									<th>邮箱</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td class="center "><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="even">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		<tr class="odd">
-			<td>12</td>
-			<td>admin</td>
-			<td>超级管理员</td>
-			<td>afdf@qq.com</td>
-			<td><a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-				查看
-				</a>
-				<a class="btn btn-info" href="#">
-				<i class="icon-edit icon-white"></i>
-				编辑
-				</a>
-				<a class="btn btn-danger" href="#">
-				<i class="icon-trash icon-white"></i>
-				删除
-				</a></td>
-		</tr>
-		
-							</tbody>
-                       	</table>
-                </div>
+               	<div class="tableContent">
+               	</div>
             </div>
         </div>
     </div>
-
+   
+    
 <script type="text/javascript">
 	$("#blue").click( function(){
 		$(".navbar-inner").attr("class","navbar-inner");	
