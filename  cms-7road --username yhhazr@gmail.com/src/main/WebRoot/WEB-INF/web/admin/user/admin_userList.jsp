@@ -79,11 +79,8 @@ label{
 				<display:column property="role.roleName"   title="角色" headerClass="ui-state-default" class="center"/>
 				<display:column property="email"   title="邮箱" headerClass="ui-state-default" class="center"/>
 				<display:column  title="操作" headerClass="ui-state-default" class="center">
-					<a class="btn btn-success" href="#">
-				<i class="icon-zoom-in icon-white"></i>
-					查看
-				</a>
-				<a class="btn btn-info" href="#">
+				
+				<a id='<s:property value="#attr.user.id"/>' name="edit" class="btn btn-info" href="#">
 				<i class="icon-edit icon-white"></i>
 					编辑
 				</a>
@@ -105,6 +102,16 @@ label{
     <script type="text/javascript">
 		$("#newUser").click(function(){
 			$.get("addUser.action",function(data){
+				$("#myModal").html(data);
+				$('#myModal').modal({
+					backdrop:false
+				});
+			});
+		});
+		
+		$("a[name='edit']").click(function(){
+			var id=$(this).attr("id");
+			$.get("editUser.action?userId="+id,function(data){
 				$("#myModal").html(data);
 				$('#myModal').modal({
 					backdrop:false

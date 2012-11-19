@@ -3,26 +3,26 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
     <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3>新增用户</h3>
+    <h3>修改用户</h3>
     </div>
     <div class="modal-body">
     	<s:form id="userForm" enctype="multipart/form-data"  cssClass="form-horizontal">
    		 <div class="control-group ">
                 	<label class="control-label">用户名:</label>
                 	<div class="controls">
-						<s:textfield name="user.userName"></s:textfield>
+                		<s:textfield name="user.userName"></s:textfield>
 					</div>
 		</div>
 		<div class="control-group ">
                 	<label class="control-label">密码:</label>
                 	<div class="controls">
-						<s:textfield name="user.password"></s:textfield>
+                		<s:textfield name="user.password"></s:textfield>
 					</div>
 		</div>
 		<div class="control-group ">
                 	<label class="control-label">确认密码:</label>
                 	<div class="controls">
-                		<s:textfield name="confirmPassword"></s:textfield>
+						<s:password name="user.password"></s:password>
 					</div>
 		</div>
    		 <div class="control-group ">
@@ -34,8 +34,9 @@
 		 <div class="control-group ">
                 	<label class="control-label">角色:</label>
                 	<div class="controls">
-                		<s:select style="width:auto;" list="roleList" name="role.id" listKey="id" listValue="roleName" value="user.role.id" headerKey="0" headerValue="请选择角色">
+                		<s:select style="width:auto;" list="roleList" name="role.id" listKey="id" listValue="roleName" value="user.role.id">
                 		</s:select>
+						
 					</div>
 		</div>
 		</s:form>
@@ -52,11 +53,7 @@
     				$('#myModal').modal('hide');
     				changeContent('userManage.action');
     			}else{
-    				var errors = {
-    					fieldErrors:data.fieldErrors,
-    					errors:data.actionErrors
-    				}
-    				bootstrapValidation($("#userForm"),errors);
+    				bootstrapValidation($("#userForm"),data);
     			}
     		});
     	});
