@@ -113,6 +113,9 @@ text-decoration: none;
 	padding:20px;
 }
 </style>
+<!--[if IE 6]>
+    <link href="static/css/ie6.min.css" rel="stylesheet">
+<![endif]-->
 </head>
 <body>
 <div id="iframe-overlay"></div>
@@ -363,6 +366,9 @@ text-decoration: none;
 	$("#bg2").click(function(){
 		$("body").css("background-image","url('static/images/dark_brick_wall.png')");
 	});
+</script>
+<script>
+    $(function(){if($.browser.msie&&parseInt($.browser.version,10)===6){$('.row div[class^="span"]:last-child').addClass("last-child");$('[class*="span"]').addClass("margin-left-20");$(':button[class="btn"], :reset[class="btn"], :submit[class="btn"], input[type="button"]').addClass("button-reset");$(":checkbox").addClass("input-checkbox");$('[class^="icon-"], [class*=" icon-"]').addClass("icon-sprite");$(".pagination li:first-child a").addClass("pagination-first-child")}})
 </script>
 </body>
 </html>
