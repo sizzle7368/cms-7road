@@ -10,6 +10,11 @@
 			 	/WEB-INF/web/admin/user/admin_userList.jsp
 			</result>
 		</action>
+		<action name="editUser" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="editUser">
+			<result name="success">
+			 	/WEB-INF/web/admin/user/admin_editUser.jsp
+			</result>
+		</action>
 		<action name="addUser" class="com.sz7road.web.action.admin.usermanage.UserManageAction" method="addUser">
 			<result name="success">
 			 	/WEB-INF/web/admin/user/admin_addUser.jsp

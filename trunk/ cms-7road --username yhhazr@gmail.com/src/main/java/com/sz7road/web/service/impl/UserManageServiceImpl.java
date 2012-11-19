@@ -2,6 +2,7 @@ package com.sz7road.web.service.impl;
 
 import java.util.List;
 
+import com.sz7road.web.common.util.MD5Util;
 import com.sz7road.web.dao.RoleDao;
 import com.sz7road.web.dao.UserDao;
 import com.sz7road.web.dao.HibernateImpl.RoleDaoHibernateImpl;
@@ -47,6 +48,7 @@ public class UserManageServiceImpl implements UserManageService {
 	@Override
 	public void addUser(User user) throws Exception {
 		Role role = roleDao.getRoleById(user.getRole().getId());
+		user.setPassword(MD5Util.getMD5String(user.getPassword()));
 		user.setRole(role);
 		userDao.insertUser(user);
 	}
@@ -55,6 +57,11 @@ public class UserManageServiceImpl implements UserManageService {
 	public void deleteUser(int id) throws Exception {
 		User user = userDao.getUserById(id);
 		userDao.deleteUser(user);
+	}
+
+	@Override
+	public User getUserById(int id) throws Exception {
+		return userDao.getUserById(id);
 	}
 
 }

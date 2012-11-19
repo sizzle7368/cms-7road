@@ -55,6 +55,19 @@ public class UserManageAction extends ActionSupport {
 		return result;
 	}
 	
+	public String editUser(){
+		String result = INPUT;
+		try {
+			user = userService.getUserById(Integer.parseInt(userId));
+			roleList = userService.getRoleList();
+			result = SUCCESS;
+		} catch (Exception e) {
+			logger.error("Edit User Error:" + e.getMessage());
+		}
+		return result;
+		
+	}
+	
 	public String addUser(){
 		String result = INPUT;
 		try {

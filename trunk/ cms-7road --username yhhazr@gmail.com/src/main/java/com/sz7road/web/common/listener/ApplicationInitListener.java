@@ -18,11 +18,10 @@ public class ApplicationInitListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext content = sce.getServletContext();
 		try {
-			new SystemConfig(content);
+			//new SystemConfig(content);
 		} catch (Exception e) {
 			logger.error("ApplicationInit Error:" + e.getMessage());
 		}
-
 	}
 
 	@Override
