@@ -16,4 +16,6 @@ public interface UserManageService {
 	public void addUser(User user) throws Exception;
 	
 	public void deleteUser(int id) throws Exception;
+	
+	public User getUserById(int id) throws Exception;
 }
