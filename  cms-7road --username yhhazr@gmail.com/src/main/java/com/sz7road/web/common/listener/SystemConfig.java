@@ -20,7 +20,7 @@ public class SystemConfig {
 	
 	public SystemConfig(ServletContext context){
 		try {
-			InputStream fileStream = context.getResourceAsStream("WEB-INF/classes/applicationConfig.properties");
+			InputStream fileStream = context.getResourceAsStream("applicationConfig.properties");
 			properties.load(fileStream);
 			if(fileStream != null){
 				fileStream.close();
